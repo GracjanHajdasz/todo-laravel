@@ -22,6 +22,7 @@ enum StatusEnum: string
         return match($this) {
             self :: ToDo => [self :: InProgress],
             self :: InProgress => [self :: Done],
+            self::Done => [],
         };
     }
 

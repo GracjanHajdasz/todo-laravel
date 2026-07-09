@@ -6,6 +6,7 @@ type Task = {
 };
 
 export default function Tasks({ tasks }: { tasks: Task[] }) {
+    console.log(tasks);
     return (
         <div>
             {tasks.map((task) => (

@@ -10,9 +10,10 @@ class Task extends Model
     protected $fillable = [
         'title',
         'description',
+        'status',
     ];
 
     protected $casts = [
-        'status' => StatusEnum::class
+        'status' => StatusEnum::class,
     ];
 }

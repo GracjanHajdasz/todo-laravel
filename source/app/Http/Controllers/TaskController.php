@@ -8,14 +8,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
     public function index()
     {
         return Inertia::render('home', [
-            'tasks' => DB::table('tasks')->paginate(15)
+            'tasks' => Task::all()
         ]);
     }
 
