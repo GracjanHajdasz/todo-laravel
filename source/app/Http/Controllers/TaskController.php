@@ -27,8 +27,9 @@ class TaskController extends Controller
     public function create(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'status' => ['required', Rule::enum(StatusEnum::class)],
+            'title' => 'sometimes|required|string|max:255',
+            'description' => 'sometimes',
+            'status' => ['sometimes','required', Rule::enum(StatusEnum::class)],
         ]);
     }
 
@@ -62,8 +63,9 @@ class TaskController extends Controller
     public function update(Request $request, Task $task): RedirectResponse
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'status' => ['required', Rule::enum(StatusEnum::class)],
+            'title' => 'sometimes|required|string|max:255',
+            'description' => 'sometimes',
+            'status' => ['sometimes','required', Rule::enum(StatusEnum::class)],
         ]);
 
         //status flow
@@ -85,6 +87,7 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+        return back()->with('success', 'Zadanie usunięte');
     }
 }
