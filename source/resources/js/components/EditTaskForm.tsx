@@ -40,9 +40,14 @@ export default function EditTaskForm({
         e.preventDefault();
         put(`/tasks/${id}`, {
             preserveScroll: true,
-            onSuccess: () => reset(),
+            onSuccess: () => {
+                reset();
+                setShowEditForm(false);
+            },
+            onError: (errors) => {
+                console.log(errors.status);
+            },
         });
-        setShowEditForm(false);
     };
 
     return (
@@ -68,6 +73,7 @@ export default function EditTaskForm({
                 <option value="done">Gotowe</option>
             </select>
 
+            {errors.status && <p className="text-red-500">{errors.status}</p>}
             {errors.title && <p className="text-red-500">{errors.title}</p>}
 
             <button type="submit" disabled={processing}>
