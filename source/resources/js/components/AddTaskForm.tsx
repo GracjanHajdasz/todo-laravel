@@ -25,6 +25,8 @@ export default function AddTaskForm() {
                 onChange={(e) => setData('description', e.target.value)}
             />
 
+            {errors.title && <p className="text-red-500">{errors.title}</p>}
+
             <button type="submit" disabled={processing}>
                 Dodaj
             </button>

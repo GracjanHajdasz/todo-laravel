@@ -18,8 +18,8 @@
         "laravel/wayfinder": "^0.1.14"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "*",
         "fakerphp/faker": "^1.24",
-        "friendsofphp/php-cs-fixer": "*",
         "larastan/larastan": "^3.9",
         "laravel/boost": "^2.2",
         "laravel/pail": "^1.2.5",
